@@ -2,8 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 import TeamTable from './Components/TeamTable/TeamTable';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import * as teams from "./data.json";
 
 function App() {
+
+  let data = teams;
+
   const darkTheme = createTheme({
     palette: {
       primary: {
@@ -13,25 +17,12 @@ function App() {
   });
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
       <ThemeProvider theme = {darkTheme}>
-        <TeamTable></TeamTable>
+        <TeamTable team = {data.teams[0]}></TeamTable>
+        <TeamTable team = {data.teams[1]}></TeamTable>
       </ThemeProvider>
-    </div>
+  
   );
 }
 

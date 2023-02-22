@@ -7,7 +7,8 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { styled } from '@mui/material/styles';
-import * as teams from "../../data.json";
+import { Typography } from "@mui/material";
+
 
 
 const StyledTableCell = styled(TableCell)(({theme}) => ({
@@ -22,9 +23,8 @@ const StyledTableCell = styled(TableCell)(({theme}) => ({
 }));
 
 
-const TeamTable = () => {
+const TeamTable = ({team}) => {
 
-    let data = teams;
 
     const getTotal = (games) => {
       let result = 0;
@@ -35,7 +35,8 @@ const TeamTable = () => {
     }
 
     return ( 
-        <Paper sx = {{width:'50vw', overflow: 'hidden'}}>
+        <Paper sx = {{width:'750px', minWidth: '500px'}}>
+          <Typography variant="h4">{team.name}</Typography>
         <TableContainer>
         <Table sx={{ minWidth: 650 }} size = 'small' aria-label="a dense table">
           <TableHead>
@@ -47,7 +48,7 @@ const TeamTable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.teams.players.map((player,i) => (
+            {team.players.map((player,i) => (
               <TableRow
               key={i}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
