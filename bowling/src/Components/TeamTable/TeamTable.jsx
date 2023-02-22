@@ -13,6 +13,14 @@ const TeamTable = () => {
 
     let data = teams;
 
+    const getTotal = (games) => {
+      let result = 0;
+      games.map((game) => {
+        result += game;
+      })
+      return result ;
+    }
+
     return ( 
         <>
         <TableContainer component={Paper}>
@@ -34,7 +42,9 @@ const TeamTable = () => {
                 <TableCell align="left">{player.name}</TableCell>
                 <TableCell align="left">{player.average}</TableCell>
                 <TableCell align="right">{player.handicap}</TableCell>
-                <TableCell align="center">{player.games}</TableCell>
+                <TableCell align="center">{player.games.map((game)=>{
+                  return `${game}, `;
+                })}</TableCell>
               </TableRow>
             ))}
           </TableBody>
