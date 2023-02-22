@@ -35,8 +35,8 @@ const TeamTable = () => {
     }
 
     return ( 
-        <>
-        <TableContainer component={Paper}>
+        <Paper sx = {{width:'50vw', overflow: 'hidden'}}>
+        <TableContainer>
         <Table sx={{ minWidth: 650 }} size = 'small' aria-label="a dense table">
           <TableHead>
             <TableRow>
@@ -64,7 +64,7 @@ const TeamTable = () => {
         </Table>
       </TableContainer>
 
-            </>
+            </Paper>
      );
 }
  
