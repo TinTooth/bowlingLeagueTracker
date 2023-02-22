@@ -1,8 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 import TeamTable from './Components/TeamTable/TeamTable';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 function App() {
+  const darkTheme = createTheme({
+    palette: {
+      primary: {
+        main: '#350c0c'
+      }
+    },
+  });
+
   return (
     <div className="App">
       <header className="App-header">
@@ -19,7 +28,9 @@ function App() {
           Learn React
         </a>
       </header>
-      <TeamTable></TeamTable>
+      <ThemeProvider theme = {darkTheme}>
+        <TeamTable></TeamTable>
+      </ThemeProvider>
     </div>
   );
 }

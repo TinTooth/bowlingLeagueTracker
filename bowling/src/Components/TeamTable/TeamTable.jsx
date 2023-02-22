@@ -1,13 +1,26 @@
 import * as React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-
+import { styled } from '@mui/material/styles';
 import * as teams from "../../data.json";
+
+
+const StyledTableCell = styled(TableCell)(({theme}) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.common.white,
+  },
+}));
+
 
 const TeamTable = () => {
 
@@ -24,13 +37,13 @@ const TeamTable = () => {
     return ( 
         <>
         <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table sx={{ minWidth: 650 }} size = 'small' aria-label="a dense table">
           <TableHead>
             <TableRow>
-              <TableCell align="left">Player</TableCell>
-              <TableCell align="left">Average</TableCell>
-              <TableCell align="right">Handicap</TableCell>
-              <TableCell align="center">Games</TableCell>
+              <StyledTableCell align="left">Player</StyledTableCell>
+              <StyledTableCell align="left">Average</StyledTableCell>
+              <StyledTableCell align="right">Handicap</StyledTableCell>
+              <StyledTableCell align="center">Games</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -39,12 +52,12 @@ const TeamTable = () => {
               key={i}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell align="left">{player.name}</TableCell>
-                <TableCell align="left">{player.average}</TableCell>
-                <TableCell align="right">{player.handicap}</TableCell>
-                <TableCell align="center">{player.games.map((game)=>{
+                <StyledTableCell align="left">{player.name}</StyledTableCell>
+                <StyledTableCell align="left">{player.average}</StyledTableCell>
+                <StyledTableCell align="right">{player.handicap}</StyledTableCell>
+                <StyledTableCell align="center">{player.games.map((game)=>{
                   return `${game}, `;
-                })}</TableCell>
+                })}</StyledTableCell>
               </TableRow>
             ))}
           </TableBody>
