@@ -13,7 +13,7 @@ const updateAverage = (setdata,data,team,player) => {
     data.teams[team].players[player].games.forEach(game => {
         sum += game       
     });
-    data.teams[team].players[player].average = sum/data.teams[team].players[player].games.length
+    data.teams[team].players[player].average = Math.round(sum/data.teams[team].players[player].games.length)
     let newdata = {...data}
     setdata(newdata)
 }
