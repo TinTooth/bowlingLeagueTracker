@@ -13,17 +13,31 @@ const updateAverage = (setdata,data,team,player) => {
     data.teams[team].players[player].games.forEach(game => {
         sum += game       
     });
-    let result = sum/data.teams[team].players[player].games.length
-    data.teams[team].players[player].average = result
+    data.teams[team].players[player].average = sum/data.teams[team].players[player].games.length
     let newdata = {...data}
     setdata(newdata)
 }
 
+const updateHandicap = (setdata,data,team,player) => {
+    let result = 210-data.teams[team].players[player].average
+    if (result > 0) {
+        data.teams[team].players[player].handicap = result
+    }
+    else {
+        data.teams[team].players[player].handicap = 0
+    }
+    let newdata = {...data}
+    setdata(newdata)
+}
+
+const update =(setdata,data,team,player) => {
+    updateAverage(setdata,data,team,player);
+    updateHandicap(setdata,data,team,player);
+}
 
 
 
-
-return [addGame,updateAverage]
+return [addGame,update]
 
 }
 

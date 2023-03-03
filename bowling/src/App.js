@@ -8,7 +8,7 @@ import usePlayerUpdate from './usePlayerUpdate';
 
 function App() {
   const [data, setdata] = useState(teams);
-  const [addGame,updateAverage] = usePlayerUpdate()
+  const [addGame,update] = usePlayerUpdate()
 
   const darkTheme = createTheme({
     palette: {
@@ -23,8 +23,8 @@ function App() {
     addGame(setdata,data,0,0,202);
   }
 
-  const update = () => {
-    updateAverage(setdata,data,0,1)
+  const updateData = () => {
+    update(setdata,data,0,1)
   }
 
 
@@ -33,7 +33,7 @@ function App() {
         <TeamTable team = {data.teams[0]}></TeamTable>
         <TeamTable team = {data.teams[1]}></TeamTable>
         <button onClick={addgame}>Add Game</button>
-        <button onClick={update}>Update</button>
+        <button onClick={updateData}>Update</button>
       </ThemeProvider>
     
   
