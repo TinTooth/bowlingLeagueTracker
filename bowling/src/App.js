@@ -8,7 +8,7 @@ import usePlayerUpdate from './usePlayerUpdate';
 
 function App() {
   const [data, setdata] = useState(teams);
-  const [addGame,update] = usePlayerUpdate()
+  const [addGame,updateAll] = usePlayerUpdate()
 
   const darkTheme = createTheme({
     palette: {
@@ -24,7 +24,7 @@ function App() {
   }
 
   const updateData = () => {
-    update(setdata,data,0,1)
+    updateAll(setdata,data,0,1)
   }
 
 

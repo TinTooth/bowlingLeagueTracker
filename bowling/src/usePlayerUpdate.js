@@ -6,6 +6,7 @@ const addGame = (setdata,data,team,player,score) => {
     data.teams[team].players[player].games.push(score);
     let newdata = {...data}
     setdata(newdata)
+    // PUT Request HERE
 }
 
 const updateAverage = (setdata,data,team,player) => {
@@ -16,6 +17,8 @@ const updateAverage = (setdata,data,team,player) => {
     data.teams[team].players[player].average = Math.round(sum/data.teams[team].players[player].games.length)
     let newdata = {...data}
     setdata(newdata)
+    // Put Request HERE
+    updateHandicap(setdata,data,team,player)
 }
 
 const updateHandicap = (setdata,data,team,player) => {
@@ -28,17 +31,18 @@ const updateHandicap = (setdata,data,team,player) => {
     }
     let newdata = {...data}
     setdata(newdata)
+    // Put Request HERE
 }
 
-const update =(setdata,data,team,player) => {
+const updateAll =(setdata,data,team,player) => {
     data.teams.forEach((team, t)=> {
         team.players.forEach((player,p)=>{
             updateAverage(setdata,data,t,p);
-            updateHandicap(setdata,data,t,p);
         })
     })
+    // Get Request HERE
 }
-return [addGame,update]
+return [addGame,updateAll]
 
 }
 
