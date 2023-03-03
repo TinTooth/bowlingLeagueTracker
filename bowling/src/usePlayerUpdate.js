@@ -1,10 +1,11 @@
 const usePlayerUpdate = () => {
 //  eventually functions will make API Requests
 
-const addGame = ({setData,data,player,score}) => {
-    data[player].games.push(score);
-    let newData = data;
-    setData(newData);
+const addGame = (setdata,data,player,score) => {
+    console.log(data);
+    data.teams[0].players[player].games.push(score);
+    let newdata = {...data}
+    setdata(newdata)
 }
 
 

@@ -23,7 +23,7 @@ const StyledTableCell = styled(TableCell)(({theme}) => ({
 }));
 
 
-const TeamTable = ({team}) => {
+const TeamTable = ({team,data}) => {
 
 
     const getTotal = (games) => {
