@@ -1,10 +1,12 @@
 {"teams": [
     {"name": "Premptive Strikes",
+    "teamId": 0,
     "players": [{"name":"Ben", "average": 124, "handicap":83, "games": [155,144,120,85,120]},
                 {"name":"Dan", "average": 145, "handicap":63, "games": [132,198,142,123,122]}],
     "total_pins" : [200],
     "total_handicaped_pins":[225]},
     {"name": "Bowling Time",
+    "teamId": 1,
     "players": [{"name":"Bill", "average": 124, "handicap":83, "games": [155,144,120,85,120]},
                 {"name":"Karen", "average": 145, "handicap":63, "games": [132,198,142,123,122]}],
     "total_pins" : [200],
