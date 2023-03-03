@@ -5,8 +5,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import * as teams from "./data.json";
 
 function App() {
-
-  let data = teams;
+  const [data, setdata] = useState(teams);
 
   const darkTheme = createTheme({
     palette: {
@@ -15,6 +14,8 @@ function App() {
       }
     },
   });
+
+  
 
   return (
 
