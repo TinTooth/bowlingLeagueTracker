@@ -31,14 +31,15 @@ const updateHandicap = (setdata,data,team,player) => {
 }
 
 const update =(setdata,data,team,player) => {
-    updateAverage(setdata,data,team,player);
-    updateHandicap(setdata,data,team,player);
+    data.teams.forEach((team, t)=> {
+        team.players.forEach((player,p)=>{
+            updateAverage(setdata,data,t,p);
+            updateHandicap(setdata,data,t,p);
+        })
+    })
 }
-
-
-
 return [addGame,update]
 
 }
 
-export default usePlayerUpdate
+export default usePlayerUpdate;
