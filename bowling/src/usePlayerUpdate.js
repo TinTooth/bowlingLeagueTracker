@@ -34,6 +34,13 @@ const updateHandicap = (setdata,data,team,player) => {
     // Put Request HERE
 }
 
+const addPlayer = (setdata,data,team,playerName) => {
+    data.teams[team].players.push({name:playerName,average:0,handicap:0,games:[]})
+    let newdata = {...data}
+    setdata(newdata)
+    // Put Request Here
+}
+
 const updateAll =(setdata,data,team,player) => {
     data.teams.forEach((team, t)=> {
         team.players.forEach((player,p)=>{
@@ -42,7 +49,7 @@ const updateAll =(setdata,data,team,player) => {
     })
     // Get Request HERE
 }
-return [addGame,updateAll]
+return [addGame,updateAll,addPlayer]
 
 }
 

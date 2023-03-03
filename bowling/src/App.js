@@ -5,10 +5,11 @@ import TeamTable from './Components/TeamTable/TeamTable';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import * as teams from "./data.json";
 import usePlayerUpdate from './usePlayerUpdate';
+import { containerClasses } from '@mui/material';
 
 function App() {
   const [data, setdata] = useState(teams);
-  const [addGame,updateAll] = usePlayerUpdate()
+  const [addGame,updateAll,addPlayer] = usePlayerUpdate()
 
   const darkTheme = createTheme({
     palette: {
@@ -27,6 +28,9 @@ function App() {
     updateAll(setdata,data,0,1)
   }
 
+  const addnewPlayer = () => {
+    addPlayer(setdata,data,0,"Tim")
+  }
 
   return (
       <ThemeProvider theme = {darkTheme}>
@@ -34,9 +38,9 @@ function App() {
         <TeamTable team = {data.teams[1]}></TeamTable>
         <button onClick={addgame}>Add Game</button>
         <button onClick={updateData}>Update</button>
+        <button onClick={addnewPlayer}>Add Tim</button>
       </ThemeProvider>
     
-  
   );
 }
 
