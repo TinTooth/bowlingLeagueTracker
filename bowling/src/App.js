@@ -4,11 +4,11 @@ import './App.css';
 import TeamTable from './Components/TeamTable/TeamTable';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+
 import * as teams from "./data.json";
 import usePlayerUpdate from './usePlayerUpdate';
 import { containerClasses } from '@mui/material';
+import AddGames from './Components/AddGames/AddGames';
 
 function App() {
   const [data, setdata] = useState(teams);
@@ -69,14 +69,7 @@ function App() {
        open={modal}
        onClose={handleModal}
        >
-       <Box sx={style}>
-          <Typography  variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography  sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-        </Box>
+       <AddGames></AddGames>
      </Modal>
       </ThemeProvider>
     </>
