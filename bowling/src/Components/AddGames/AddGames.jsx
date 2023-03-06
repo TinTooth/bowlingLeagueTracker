@@ -5,6 +5,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import {useState} from 'react';
+import GameInput from '../GameInput/GameInput';
 
 const AddGames = ({data,setData}) => {
     const [team, setteam] = useState(0);
@@ -36,7 +37,7 @@ const AddGames = ({data,setData}) => {
             })}
         </Select>
         {data.teams[team].players.map((player,i)=> {
-            return <div key = {i}>{player.name}</div> 
+            return <GameInput i = {i} team = {team} data = {data} setData = {setData}></GameInput>
         })}
       </FormControl>
           

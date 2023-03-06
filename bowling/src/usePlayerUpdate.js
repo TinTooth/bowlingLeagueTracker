@@ -3,7 +3,7 @@ const usePlayerUpdate = () => {
 
 const addGame = (setdata,data,team,player,score) => {
     console.log(data);
-    data.teams[team].players[player].games.push(score);
+    data.teams[team].players[player].games.push(parseInt(score));
     let newdata = {...data}
     setdata(newdata)
     // PUT Request HERE
@@ -49,7 +49,7 @@ const updateAll =(setdata,data,team,player) => {
     })
     // Get Request HERE
 }
-return [addGame,updateAll,addPlayer]
+return [addGame,updateAll,addPlayer, updateAverage]
 
 }
 
