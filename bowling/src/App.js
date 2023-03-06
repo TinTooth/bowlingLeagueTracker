@@ -4,10 +4,8 @@ import './App.css';
 import TeamTable from './Components/TeamTable/TeamTable';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Modal from '@mui/material/Modal';
-
 import * as teams from "./data.json";
 import usePlayerUpdate from './usePlayerUpdate';
-import { containerClasses } from '@mui/material';
 import AddGames from './Components/AddGames/AddGames';
 
 function App() {
@@ -44,18 +42,7 @@ function App() {
         setmodal(false);
       }
   }
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-  };
-
+  
   return (
     <>
       <ThemeProvider theme = {darkTheme}>
@@ -69,7 +56,7 @@ function App() {
        open={modal}
        onClose={handleModal}
        >
-       <AddGames></AddGames>
+       <AddGames data = {data} setData ={setdata}></AddGames>
      </Modal>
       </ThemeProvider>
     </>

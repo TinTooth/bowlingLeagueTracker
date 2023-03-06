@@ -1,7 +1,13 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import {useState} from 'react';
 
 const AddGames = ({data,setData}) => {
+    const [team, setteam] = useState(0);
     const style = {
         position: 'absolute',
         top: '50%',
@@ -14,17 +20,29 @@ const AddGames = ({data,setData}) => {
         p: 4,
       };
     
-    return (
+    return data ? (
         <Box sx={style}>
-          <Typography  variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography  sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+        <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">Team</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={[team]}
+          label="Team"
+          onChange={(e)=>{setteam(e.target.value)}}
+        >
+            {data.teams.map((team,i)=>{
+                return (<MenuItem key = {i} value={team.teamId}>{team.name}</MenuItem>)
+            })}
+        </Select>
+        {data.teams[team].players.map((player)=> {
+            return <div>{player.name}</div>
+        })}
+      </FormControl>
+          
         </Box>
 
-      );
+      ):null;
 }
  
 export default AddGames;
