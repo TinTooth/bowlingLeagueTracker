@@ -35,8 +35,8 @@ const AddGames = ({data,setData}) => {
                 return (<MenuItem key = {i} value={team.teamId}>{team.name}</MenuItem>)
             })}
         </Select>
-        {data.teams[team].players.map((player)=> {
-            return <div>{player.name}</div>
+        {data.teams[team].players.map((player,i)=> {
+            return <div key = {i}>{player.name}</div> 
         })}
       </FormControl>
           
