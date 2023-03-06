@@ -7,6 +7,7 @@ import InputLabel from '@mui/material/InputLabel';
 import {useState} from 'react';
 import GameInput from '../GameInput/GameInput';
 
+
 const AddGames = ({data,setData}) => {
     const [team, setteam] = useState(0);
     const style = {
@@ -37,7 +38,7 @@ const AddGames = ({data,setData}) => {
             })}
         </Select>
         {data.teams[team].players.map((player,i)=> {
-            return <GameInput i = {i} team = {team} data = {data} setData = {setData}></GameInput>
+            return <GameInput i = {i} team = {team} data = {data} setData = {setData}/>
         })}
       </FormControl>
           

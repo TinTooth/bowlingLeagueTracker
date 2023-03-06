@@ -7,6 +7,7 @@ import Modal from '@mui/material/Modal';
 import * as teams from "./data.json";
 import usePlayerUpdate from './usePlayerUpdate';
 import AddGames from './Components/AddGames/AddGames';
+import Grid from '@mui/material/Unstable_Grid2';
 
 function App() {
   const [data, setdata] = useState(teams);
@@ -21,19 +22,6 @@ function App() {
     },
   });
 
-  const addgame = () => {
-    console.log(data)
-    addGame(setdata,data,0,0,202);
-  }
-
-  const updateData = () => {
-    updateAll(setdata,data,0,1)
-  }
-
-  const addnewPlayer = () => {
-    addPlayer(setdata,data,0,"Tim")
-  }
-
   const handleModal = () => {
       if (modal === false) {
         setmodal(true);
@@ -46,12 +34,16 @@ function App() {
   return (
     <>
       <ThemeProvider theme = {darkTheme}>
-        <TeamTable team = {data.teams[0]}></TeamTable>
-        <TeamTable team = {data.teams[1]}></TeamTable>
-        <button onClick={addgame}>Add Game</button>
-        <button onClick={updateData}>Update</button>
-        <button onClick={addnewPlayer}>Add Tim</button>
-        <button onClick={handleModal}>Modal</button>
+      <Grid display="flex"
+    justifyContent="center"
+    alignItems="center" container rowSpacing={1} columnSpacing={{ xs: 5, sm: 1, md: 1 }}>
+        {data.teams.map((team,i)=>{
+          return (<Grid xs={4} sm={1} md={9} key={i}>
+            <TeamTable team = {data.teams[i]}></TeamTable>
+        </Grid>)
+        })}
+      </Grid>
+        <button onClick={handleModal}>Add Games</button>
       <Modal
        open={modal}
        onClose={handleModal}

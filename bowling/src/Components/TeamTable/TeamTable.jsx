@@ -35,7 +35,7 @@ const TeamTable = ({team,data}) => {
     }
 
     return ( 
-        <Paper sx = {{width:'750px', minWidth: '500px'}}>
+        <Paper sx = {{width: '100%'}}>
           <Typography variant="h4">{team.name}</Typography>
         <TableContainer>
         <Table sx={{ minWidth: 650 }} size = 'small' aria-label="a dense table">
